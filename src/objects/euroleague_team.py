@@ -1,0 +1,21 @@
+from enum import Enum
+
+class EuroleagueTeam(Enum):
+    CSK = "cska moscow"
+    PAO = "panathinaikos opap athens"
+    FNB = "fenerbahce beko istanbul"
+    ASM = "as monaco"
+    ZAL = "zalgiris kaunas"
+    BKN = "bitci baskonia vitoria-gasteiz"
+    BAY = "fc bayern munich"
+    ASV = "ldlc asvel villeurbanne"
+    RMB = "real madrid"
+    MTA = "maccabi playtika tel aviv"
+    UNK = "unics kazan"
+    OLY = "olympiacos piraeus"
+    ZEN = "zenit st petersburg"
+    CZV = "crvena zvezda mts belgrade"
+    EFS = "anadolu efes istanbul"
+    FCB = "fc barcelona"
+    BER = "alba berlin"
+    AXM = "ax armani exchange milan"
