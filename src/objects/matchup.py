@@ -19,25 +19,6 @@ class Matchup:
 
         return home_team_standing.winning_percentage - away_team_standing.winning_percentage
 
-    def recommend_coach(self, percentage_difference: float,  coach_price_by_name: dict) -> dict:
-        """
-        gets a dictionary of coach prices by team name (abbrevation) and returns a dict containing keys "team", "price"
-        """
-
-        home_coach =  {"team": self.home_team.name, "price": coach_price_by_name[self.home_team.name]}
-        away_coach =  {"team": self.away_team.name, "price": coach_price_by_name[self.away_team.name]}
-
-        # if the percentage is positive, the home team is better
-        if percentage_difference > 0:
-            return home_coach
-
-        # if the percentage is negative, the away team is better
-        elif percentage_difference < 0:
-            return away_coach
-
-        # if the percentages are the same - return the cheaper coach
-        else:
-            return home_coach if home_coach['price'] < away_coach['price'] else away_coach
 
     def __repr__(self) -> str:
         return f"{self.home_team.name} <-> {self.away_team.name}"

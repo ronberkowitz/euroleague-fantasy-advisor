@@ -4,6 +4,8 @@ from typing import List
 from src.objects.matchup import Matchup
 from src.objects.standing import Standing
 import matplotlib.pyplot as plt
+import numpy as np
+
 
 
 class CoachAnalyzer:
@@ -65,6 +67,13 @@ class CoachAnalyzer:
     def generate_coach_analysis_plot(self, coach_analysis_df: pd.DataFrame, output_path: str):
         fig, ax = plt.subplots()
         ax.scatter(x=coach_analysis_df['price'], y=coach_analysis_df['strength'])
+
+        # creates a linear regression
+        (m, b) = np.polyfit(coach_analysis_df['price'], coach_analysis_df['strength'], 1)
+        yp = np.polyval([m, b], coach_analysis_df['price'])
+        plt.plot(coach_analysis_df['price'], yp, 'green', alpha=0.2)
+
+
 
         for index, row in coach_analysis_df.iterrows():
             ax.annotate(index, (row['price'], row['strength']))
