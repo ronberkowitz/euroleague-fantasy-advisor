@@ -11,9 +11,8 @@ BASE_OUTPUTS_FOLDER = rf'./outputs/round{ROUND_NUMBER}'
 # create the outputs folder for the upcoming round
 os.mkdir(BASE_OUTPUTS_FOLDER) if not os.path.exists(BASE_OUTPUTS_FOLDER) else None
 
-# TODO - UPDATE THIS WITH EVERY EXECUTION!
-# path should be changed everytime - automate this.
-round_stats = pd.read_excel(r"/Users/ronberkowitz/Downloads/stats (3).xlsx")
+#TODO: path should be changed everytime - automate this.
+round_stats = pd.read_excel(input('enter path to round stats excel:\n'))
 round_stats = round_stats.set_index("Team Abbreviation")
 
 standings = get_standings()
