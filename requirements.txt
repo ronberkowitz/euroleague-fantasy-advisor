@@ -3,3 +3,5 @@ requests
 matplotlib
 openpyxl
 lxml
+html5lib
+beautifulsoup4

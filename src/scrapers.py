@@ -11,13 +11,13 @@ def get_standings() -> List[Standing]:
     """
     fetches the current euroleague standings, cleans the data and returns a list of Standing objects.
     """
-    standings_url = "http://www.euroleague.net/main/standings"
+    standings_url = 'https://www.eurosport.com/basketball/euroleague/standing.shtml'
 
     resp = requests.get(standings_url)
-    df = pd.read_html(resp.text)[0]
-    df.columns = ["team", "wins", "losses", "ptsp", "ptsm", "pm"]
+    df = pd.read_html(resp.text, index_col=0)[0]
+    df.columns = ["team", "last5", "played", "wins", "losses", "pts"]
 
-    return [Standing(EuroleagueTeam(row['team'].lower().split(' ', 1)[1]), row['wins'], row['losses'])
+    return [Standing(EuroleagueTeam(row['team'].lower()), row['wins'], row['losses'])
             for index, row in df.iterrows()]
 
 
