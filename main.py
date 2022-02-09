@@ -3,9 +3,11 @@ import pandas as pd
 from src.scrapers import get_standings, get_round_matchups
 from src.analysis.coach_analyzer import CoachAnalyzer
 from src import utils
+import os
+
 
 ROUND_NUMBER = utils.get_current_round_number()
-BASE_OUTPUTS_FOLDER = rf'./outputs/round{ROUND_NUMBER}'
+BASE_OUTPUTS_FOLDER = rf'{os.getcwd()}/outputs/round{ROUND_NUMBER}'
 
 
 # create the outputs folder for the upcoming round
