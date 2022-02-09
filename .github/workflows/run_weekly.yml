@@ -2,7 +2,7 @@ name: weekly-run
 
 on:
   schedule:
-    - cron: '40 20 * * *' # runs at 12:00 UTC everyday
+    - cron: '00 8 * * 1' # runs monday at 8:00 AM
   workflow_dispatch:
     name:
         # Friendly description to be shown in the UI instead of 'name'
@@ -45,4 +45,4 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main  
+          branch: master  
